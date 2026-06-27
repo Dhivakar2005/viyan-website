@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <a href="#home" className="flex items-center gap-2 mb-6 group">
-              <img src="/logo.png" alt="Viyan Logo" className="h-16 w-auto mix-blend-screen" />
+              <img src="/image.png" alt="Viyan Logo" className="h-16 w-auto mix-blend-screen" />
             </a>
             <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
               Empowering businesses with modern technology, AI solutions, and digital growth strategies. To become the most trusted digital transformation partner for businesses worldwide.
@@ -82,8 +82,8 @@ const Footer = () => {
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <p>&copy; {currentYear} Viyan. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>
