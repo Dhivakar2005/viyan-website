@@ -42,7 +42,7 @@ const WhyChoose = () => {
   // R2: Node7 (5), Node6 (6), Node5 (7), Node4 (8)
 
   return (
-    <section id="about" className="relative flex flex-col items-center justify-center overflow-hidden py-24 lg:py-32 bg-slate-50 dark:bg-slate-900/50">
+    <section id="about" className="relative flex flex-col items-center justify-center overflow-hidden py-12 lg:py-16 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
         
         {/* Header Section */}

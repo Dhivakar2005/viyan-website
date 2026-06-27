@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#services' },
-  { name: 'Solutions', href: '#solutions' },
-  { name: 'Portfolio', href: '#portfolio' },
-  { name: 'About', href: '#about' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/#home' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Solutions', href: '/#solutions' },
+  { name: 'Portfolio', href: '/#portfolio' },
+  { name: 'About', href: '/#about' },
+  { name: 'Contact', href: '/#contact' },
 ];
 
 const Navbar = () => {
@@ -37,13 +38,13 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <a href="#home" className="flex items-center gap-3 group">
-              <img src="/logo.png" alt="Viyan Logo" className="h-16 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
+              <img src="/logo.png" alt="Viyan Logo" className="h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
               <div className="flex flex-col justify-center items-center w-fit">
-                <span className="text-3xl md:text-4xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
-                <div className="flex items-center justify-center gap-2 mt-2 w-full">
-                  <div className="h-[2px] w-3 md:w-4 bg-yellow-500 rounded-full"></div>
-                  <span className="text-[9px] md:text-[10px] font-bold tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.25em]">technologies</span>
-                  <div className="h-[2px] w-3 md:w-4 bg-yellow-500 rounded-full"></div>
+                <span className="text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
+                <div className="flex items-center justify-center gap-1 md:gap-2 mt-1 w-full">
+                  <div className="h-[2px] w-2 md:w-3 bg-yellow-500 rounded-full"></div>
+                  <span className="text-[7px] md:text-[8px] font-bold tracking-[0.45em] md:tracking-[0.55em] text-violet-primary uppercase text-center translate-x-[0.25em]">technologies</span>
+                  <div className="h-[2px] w-2 md:w-3 bg-yellow-500 rounded-full"></div>
                 </div>
               </div>
             </a>
@@ -52,13 +53,13 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-base font-semibold text-slate-900 hover:text-violet-primary dark:text-white dark:hover:text-violet-light transition-colors"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             
 
@@ -81,14 +82,14 @@ const Navbar = () => {
         <div className="md:hidden bg-white dark:bg-slate-900 absolute top-full left-0 right-0 border-b border-slate-200 dark:border-slate-800 shadow-lg">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 onClick={() => setIsOpen(false)}
                 className="block px-3 py-3 text-base font-medium text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
 
           </div>

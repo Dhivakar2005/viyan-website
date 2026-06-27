@@ -49,7 +49,7 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-24 relative">
+    <section id="portfolio" className="py-12 relative">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
