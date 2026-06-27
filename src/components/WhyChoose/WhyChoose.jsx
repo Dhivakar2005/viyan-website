@@ -30,9 +30,9 @@ const reasons = [
 ];
 
 const allNodes = [
-  { isStart: true, title: 'Viyan Technologies', icon: <img src="/logo.png" className="w-8 h-8 mix-blend-screen" alt="Viyan" />, color: 'violet-primary' },
+  { isStart: true, title: <>Client</>, icon: <div className="w-3 h-3 bg-white rounded-full"></div>, color: 'fuchsia-500' },
   ...reasons.map(r => ({ ...r, color: 'violet-500' })),
-  { isEnd: true, title: 'Client Success', icon: <div className="text-fuchsia-500 font-bold text-sm">You</div>, color: 'fuchsia-500' }
+  { isEnd: true, title: <>Viyan<br/>Technologies</>, icon: <img src="/logo.png" className="w-8 h-8 mix-blend-screen brightness-0 invert" alt="Viyan" />, color: 'violet-primary' }
 ];
 
 const WhyChoose = () => {
@@ -86,6 +86,15 @@ const WhyChoose = () => {
               ];
               const orderClass = orderClasses[index];
               
+              const isUp = [1, 3, 4, 6].includes(index);
+              const staggerClass = index === 0 
+                ? 'md:translate-y-5' 
+                : index === 7 
+                  ? 'md:translate-y-8'
+                  : isUp 
+                    ? 'md:-translate-y-24' 
+                    : 'md:translate-y-24';
+              
               return (
                 <motion.div
                   key={index}
@@ -98,33 +107,75 @@ const WhyChoose = () => {
 
                   {/* Desktop Connectors */}
                   <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
-                    {/* Row 1 (Nodes 0, 1, 2) -> line to the right */}
-                    {index >= 0 && index <= 2 && (
-                      <div className="absolute top-1/2 -right-6 w-6 border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                    
+                    {/* Node 0 starts from center */}
+                    {index === 0 && (
+                      <div className="absolute top-1/2 left-1/2 w-[calc(50%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
                     
-                    {/* Row 1 End (Node 3) -> curve down to Row 2 Start (Node 4) */}
+                    {/* Node 1, 2 span fully across */}
+                    {(index === 1 || index === 2) && (
+                      <div className="absolute top-1/2 left-0 w-[calc(100%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                    )}
+                    
+                    {/* Row 1 End (Node 3) -> line through card (minus curve overlap), curve down to Node 4 */}
                     {index === 3 && (
-                      <div className="absolute top-1/2 -right-6 w-12 h-[calc(100%+8rem)] border-t-[2px] border-r-[2px] border-b-[2px] border-dashed border-violet-400 dark:border-violet-500 rounded-r-[2.5rem]" />
+                      <>
+                        <div className="absolute top-1/2 left-0 w-[calc(100%-1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-1/2 -right-6 w-12 h-[calc(100%+8rem)] border-t-[2px] border-r-[2px] border-b-[2px] border-dashed border-violet-400 dark:border-violet-500 rounded-r-[2.5rem]" />
+                      </>
                     )}
 
-                    {/* Row 2 (Nodes 4, 5, 6) -> line to the left */}
-                    {index >= 4 && index <= 6 && (
-                      <div className="absolute top-1/2 -left-6 w-6 border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                    {/* Node 4 receives the curve, so its straight line starts 1.5rem from right */}
+                    {index === 4 && (
+                      <div className="absolute top-1/2 right-[1.5rem] w-full border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                    )}
+
+                    {/* Node 5, 6 draw across whole card and left gap */}
+                    {(index === 5 || index === 6) && (
+                      <div className="absolute top-1/2 right-0 w-[calc(100%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                    )}
+
+                    {/* Node 7 (Row 2 End) -> line ends at center */}
+                    {index === 7 && (
+                      <div className="absolute top-1/2 right-0 w-1/2 border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                    )}
+
+                    {/* Vertical branches and nodes for staggered items */}
+                    {index !== 0 && index !== 7 && (
+                      <>
+                        <div className={`absolute left-1/2 -translate-x-1/2 w-[2px] border-l-[2px] border-dashed border-violet-400 dark:border-violet-500 ${isUp ? 'bottom-1/2 h-24' : 'top-1/2 h-24'}`} />
+                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-[3px] border-violet-500 bg-slate-50 dark:bg-slate-900 z-10" />
+                      </>
                     )}
                   </div>
 
-                  <div className={`glass w-full h-full p-4 sm:p-6 rounded-2xl border-[1.5px] border-violet-500/50 dark:border-violet-500/60 hover:border-${node.color} flex flex-col items-center justify-center shadow-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] group-hover:-translate-y-2 relative z-10 bg-white/80 dark:bg-slate-800/90 backdrop-blur-xl`}>
-                    
-                    {/* Node Circle */}
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-100 to-violet-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center text-${node.color} mb-5 transition-transform duration-300 group-hover:scale-110 shadow-inner border border-white/50 dark:border-white/10`}>
-                      {node.icon}
+                  {/* Stagger Wrapper for Timeline Effect */}
+                  <div className={`w-full h-full flex items-center justify-center transition-transform duration-300 ${staggerClass}`}>
+                    <div className={`w-full h-auto p-4 sm:p-6 flex items-center justify-center transition-all duration-300 group-hover:-translate-y-2 relative z-10 gap-4 sm:gap-5 ${isUp ? 'flex-col-reverse' : 'flex-col'}`}>
+                      
+                      {/* Node Circle */}
+                      {node.isStart ? (
+                        <div className="w-8 h-8 bg-fuchsia-500 text-white rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(0,0,0,0.15)] border-2 border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">
+                          {node.icon}
+                        </div>
+                      ) : node.isEnd ? (
+                        <div className="w-14 h-14 bg-violet-600 text-white rounded-full rounded-br-none rotate-45 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.15)] border-[3px] border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">
+                          <div className="-rotate-45 flex items-center justify-center w-full h-full">
+                            {node.icon}
+                          </div>
+                        </div>
+                      ) : (
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-100 to-violet-200 dark:from-slate-800 dark:to-slate-700 flex items-center justify-center text-${node.color} transition-transform duration-300 group-hover:scale-110 shadow-inner border border-white/50 dark:border-white/10`}>
+                          {node.icon}
+                        </div>
+                      )}
+                      
+                      {/* Node Title */}
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white text-center leading-tight">
+                        {node.title}
+                      </h4>
                     </div>
-                    
-                    {/* Node Title */}
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white text-center leading-tight">
-                      {node.title}
-                    </h4>
                   </div>
 
                   {/* Desktop Directional Arrows (Optional, absolute positioned between nodes) */}
