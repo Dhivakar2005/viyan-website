@@ -118,17 +118,20 @@ const WhyChoose = () => {
                       <div className="absolute top-1/2 left-0 w-[calc(100%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
                     )}
                     
-                    {/* Row 1 End (Node 3) -> line through card (minus curve overlap), curve down to Node 4 */}
+                    {/* Row 1 End (Node 3) -> line to center, then top half of curve */}
                     {index === 3 && (
                       <>
-                        <div className="absolute top-1/2 left-0 w-[calc(100%-1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
-                        <div className="absolute top-1/2 -right-6 w-12 h-[calc(100%+8rem)] border-t-[2px] border-r-[2px] border-b-[2px] border-dashed border-violet-400 dark:border-violet-500 rounded-r-[2.5rem]" />
+                        <div className="absolute top-1/2 left-0 w-1/2 border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                        <div className="absolute top-1/2 left-1/2 w-[calc(50%+2.5rem)] h-[calc(50%+4rem)] border-t-[2px] border-r-[2px] border-dashed border-violet-400 dark:border-violet-500 rounded-tr-[4rem]" />
                       </>
                     )}
 
-                    {/* Node 4 receives the curve, so its straight line starts 1.5rem from right */}
+                    {/* Node 4 receives the curve (bottom half), and goes left */}
                     {index === 4 && (
-                      <div className="absolute top-1/2 right-[1.5rem] w-full border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                      <>
+                        <div className="absolute bottom-[calc(50%-2px)] left-1/2 w-[calc(50%+2.5rem)] h-[calc(50%+4rem+2px)] border-b-[2px] border-r-[2px] border-dashed border-violet-400 dark:border-violet-500 rounded-br-[4rem]" />
+                        <div className="absolute top-1/2 right-1/2 w-[calc(50%+1.5rem)] border-t-[2px] border-dashed border-violet-400 dark:border-violet-500" />
+                      </>
                     )}
 
                     {/* Node 5, 6 draw across whole card and left gap */}
