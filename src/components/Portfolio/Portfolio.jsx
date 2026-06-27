@@ -3,43 +3,57 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
 const projects = [
-  {
-    name: 'FinTech Dashboard',
-    industry: 'Financial Services',
+    {
+    name: 'Anna University Coimbatore - Official Website',
+    industry: 'Educational',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+    tech: ['React', 'Node.js', 'AI Predictions'],
+    results: 'Increased user retention by 45%',
+  },
+    {
+    name: 'AI-Powered Farmer Crop Disease Prediction and Query Support',
+    industry: 'Agri-Tech',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
     tech: ['React', 'Node.js', 'AI Predictions'],
     results: 'Increased user retention by 45%',
   },
   {
-    name: 'E-Commerce Platform',
-    industry: 'Retail',
+    name: 'AI-Powered Stock Screener and Advisory Platform',
+    industry: 'FinTech',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop',
+    tech: ['React', 'Node.js', 'AI Predictions'],
+    results: 'Increased user retention by 45%',
+  },
+  {
+    name: 'AI-Powered Driver Safety System',
+    industry: 'Transportation',
     image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop',
     tech: ['Next.js', 'Tailwind CSS', 'Stripe'],
     results: '200% increase in mobile sales',
   },
   {
-    name: 'AI Healthcare Assistant',
+    name: 'AI-Powered Healthcare Receptionist',
     industry: 'Healthcare',
     image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop',
     tech: ['React Native', 'OpenAI API', 'Python'],
     results: 'Reduced patient wait times by 30%',
   },
   {
-    name: 'Real Estate Portal',
-    industry: 'Real Estate',
+    name: 'Movie Ticket Booking Platform',
+    industry: 'Entertainment',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop',
     tech: ['Vue.js', 'Firebase', 'Mapbox'],
     results: 'Generated 10k+ leads in month one',
   },
   {
-    name: 'SaaS Marketing Site',
-    industry: 'Software',
+    name: 'AI-Powered Farmer Query App',
+    industry: 'Agri-Tech',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
     tech: ['Vite', 'React', 'Framer Motion'],
     results: 'Doubled conversion rate',
   },
   {
-    name: 'Logistics Tracker',
+    name: 'Road Accident Prediction System',
     industry: 'Transportation',
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop',
     tech: ['Angular', 'Spring Boot', 'AWS'],
@@ -49,7 +63,7 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-12 relative">
+    <section id="portfolio" className="py-24 relative">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -118,7 +132,7 @@ const Portfolio = () => {
               {/* Content */}
               <div className="p-6 bg-white dark:bg-slate-900">
                 <div className="text-sm text-violet-primary font-semibold mb-2">{project.industry}</div>
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-primary transition-colors">
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-yellow-500 transition-colors">
                   {project.name}
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-sm flex items-center">
