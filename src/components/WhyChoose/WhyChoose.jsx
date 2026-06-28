@@ -42,7 +42,7 @@ const WhyChoose = () => {
   // R2: Node7 (5), Node6 (6), Node5 (7), Node4 (8)
 
   return (
-    <section id="about" className="relative flex flex-col items-center justify-center overflow-hidden py-12 lg:py-16 bg-slate-50 dark:bg-slate-900/50">
+    <section id="about" className="relative flex flex-col items-center justify-center overflow-hidden pt-12 pb-24 lg:pt-16 lg:pb-36 bg-slate-50 dark:bg-slate-900/50">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 w-full">
         
         {/* Header Section */}
@@ -52,10 +52,10 @@ const WhyChoose = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-sm font-bold tracking-wider text-violet-primary uppercase mb-3">
+            <h2 className="text-5xl font-bold tracking-wider text-white mb-6">
               Why Choose Viyan
             </h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
+            <h3 className="text-xl md:text-xl font-bold text-slate-900 dark:text-white mb-4 leading-tight">
               Your Partner in <span className="text-gradient">Digital Excellence</span>
             </h3>
             <p className="text-base text-slate-600 dark:text-slate-300">
@@ -159,8 +159,10 @@ const WhyChoose = () => {
                       
                       {/* Node Circle */}
                       {node.isStart ? (
-                        <div className="w-8 h-8 bg-fuchsia-500 text-white rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(0,0,0,0.15)] border-2 border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">
-                          {node.icon}
+                        <div className="w-8 h-8 bg-fuchsia-500 text-white rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(240,46,194,0.6)] border-2 border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">
+                          <span className="absolute -inset-1.5 rounded-full bg-fuchsia-500/45 animate-pulse blur-[1px]" />
+                          <span className="absolute inset-0 rounded-full bg-fuchsia-500/60 animate-ping" />
+                          <div className="relative z-10 w-3 h-3 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,1)]" />
                         </div>
                       ) : node.isEnd ? (
                         <div className="w-14 h-14 bg-violet-600 text-white rounded-full rounded-br-none rotate-45 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.15)] border-[3px] border-slate-50 dark:border-slate-900 transition-transform duration-300 group-hover:scale-110 relative z-10">

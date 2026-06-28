@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 
 const navLinks = [
-  { name: 'Home', href: '/#home' },
-  { name: 'Services', href: '/#services' },
-  { name: 'Solutions', href: '/#solutions' },
-  { name: 'Portfolio', href: '/#portfolio' },
-  { name: 'About', href: '/#about' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/#contact' },
+  { name: 'HOME', href: '/#home' },
+  { name: 'SERVICES', href: '/#services' },
+  { name: 'SOLUTIONS', href: '/#solutions' },
+  { name: 'PORTFOLIO', href: '/#portfolio' },
+  { name: 'ABOUT', href: '/#about' },
+  { name: 'BLOG', href: '/blog' },
+  { name: 'CONTACT', href: '/#contact' },
 ];
 
 const Navbar = () => {

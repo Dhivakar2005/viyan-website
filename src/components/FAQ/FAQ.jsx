@@ -33,8 +33,14 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-12 bg-slate-50 dark:bg-slate-900/50">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 bg-white dark:bg-white relative overflow-hidden">
+      {/* Top transition gradient from previous section */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-50 dark:from-slate-900 to-transparent pointer-events-none z-10" />
+
+      {/* Bottom transition gradient to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-white dark:to-slate-900 pointer-events-none z-10" />
+
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-16">
           <motion.h2 
@@ -50,7 +56,7 @@ const FAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white"
+            className="text-3xl md:text-4xl font-bold text-slate-900"
           >
             Frequently Asked <span className="text-gradient">Questions</span>
           </motion.h3>
@@ -64,8 +70,10 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className={`glass rounded-2xl overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'border-violet-primary/50 shadow-md' : 'border-slate-200 dark:border-slate-800 hover:border-violet-primary/30'
+              className={`bg-slate-900/95 dark:bg-slate-950/90 rounded-2xl overflow-hidden transition-all duration-300 border ${
+                openIndex === index 
+                  ? 'border-violet-500/50 shadow-md shadow-slate-950/20' 
+                  : 'border-slate-800/80 hover:border-violet-500/30'
               }`}
             >
               <button
@@ -73,13 +81,13 @@ const FAQ = () => {
                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
               >
                 <span className={`font-semibold text-lg transition-colors ${
-                  openIndex === index ? 'text-violet-primary dark:text-violet-accent' : 'text-slate-900 dark:text-white'
+                  openIndex === index ? 'text-violet-300' : 'text-white'
                 }`}>
                   {faq.question}
                 </span>
                 <ChevronDown 
                   className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180 text-violet-primary dark:text-violet-accent' : 'text-slate-500'
+                    openIndex === index ? 'rotate-180 text-violet-300' : 'text-slate-400'
                   }`} 
                 />
               </button>
@@ -92,7 +100,7 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+                    <div className="px-6 pb-6 text-slate-300 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

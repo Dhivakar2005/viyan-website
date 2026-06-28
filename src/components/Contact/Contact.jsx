@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useForm as useHookForm } from 'react-hook-form';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2, MessageSquare } from 'lucide-react';
+import { Mail, Phone, Send, CheckCircle2, AlertCircle, Loader2, MessageSquare } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG } from '../../utils/emailjs.config';
 
@@ -9,17 +9,12 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6" />,
     title: 'Email Us',
-    lines: ['viyantechnologiesteam@gmail.com', 'support@viyan.tech'],
+    lines: ['viyantechnologiesteam@gmail.com'],
   },
   {
     icon: <Phone className="w-6 h-6" />,
     title: 'Call Us',
     lines: ['+91 98765 43210', 'Mon–Fri, 9am–6pm IST'],
-  },
-  {
-    icon: <MapPin className="w-6 h-6" />,
-    title: 'Visit Us',
-    lines: ['Tech Park, Phase 1', 'Bangalore, India 560001'],
   },
 ];
 
@@ -89,12 +84,12 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
           {/* ── Contact Information ── */}
-          <div>
+          <div className="lg:h-full">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-10"
+              className="space-y-12 flex flex-col justify-center lg:h-full"
             >
               <div>
                 <h2 className="text-sm font-bold tracking-wider text-violet-primary uppercase mb-3">
@@ -111,18 +106,18 @@ const Contact = () => {
               </div>
 
               {/* Contact details */}
-              <div className="space-y-6">
+              <div className="flex flex-wrap gap-8">
                 {contactInfo.map((item) => (
-                  <div key={item.title} className="flex items-start gap-5">
+                  <div key={item.title} className="flex items-start gap-4 min-w-[240px]">
                     <div className="w-12 h-12 rounded-xl bg-violet-100 dark:bg-violet-900/30 flex items-center justify-center text-violet-primary flex-shrink-0">
                       {item.icon}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                         {item.title}
                       </h4>
                       {item.lines.map((line) => (
-                        <p key={line} className="text-slate-600 dark:text-slate-400 text-sm">
+                        <p key={line} className="text-slate-600 dark:text-slate-400 text-sm break-all sm:break-normal sm:whitespace-nowrap">
                           {line}
                         </p>
                       ))}
@@ -131,37 +126,16 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* What happens next */}
-              <div className="glass rounded-2xl p-6 border border-violet-primary/20">
-                <h4 className="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                  <MessageSquare size={18} className="text-violet-primary" />
-                  What happens after you submit?
-                </h4>
-                <ol className="space-y-3">
-                  {[
-                    'We review your message within 24 hours',
-                    'Our team schedules a free discovery call',
-                    'We send you a custom proposal & roadmap',
-                  ].map((step, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-slate-600 dark:text-slate-400">
-                      <span className="w-6 h-6 rounded-full bg-violet-primary/10 text-violet-primary font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                        {i + 1}
-                      </span>
-                      {step}
-                    </li>
-                  ))}
-                </ol>
-              </div>
             </motion.div>
           </div>
 
           {/* ── Contact Form ── */}
-          <div>
+          <div className="lg:h-full">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800"
+              className="glass rounded-3xl p-8 border border-slate-200 dark:border-slate-800 lg:h-full flex flex-col justify-between"
             >
               <form
                 ref={formRef}
@@ -219,7 +193,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Phone + Company */}
+                {/* Phone + Service Required */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
@@ -234,22 +208,6 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Company <span className="text-slate-400 text-xs">(optional)</span>
-                    </label>
-                    <input
-                      id="company"
-                      type="text"
-                      {...register('company')}
-                      className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow"
-                      placeholder="Your Company Ltd."
-                    />
-                  </div>
-                </div>
-
-                {/* Service + Budget */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                       Service Required <span className="text-red-500">*</span>
@@ -276,23 +234,6 @@ const Contact = () => {
                         <AlertCircle size={12} /> {errors.service.message}
                       </p>
                     )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
-                      Estimated Budget
-                    </label>
-                    <select
-                      id="budget"
-                      {...register('budget')}
-                      className="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-violet-primary dark:text-white transition-shadow appearance-none cursor-pointer"
-                    >
-                      <option value="">Select budget range...</option>
-                      <option value="₹15,000 - ₹50,000">₹15,000 – ₹50,000</option>
-                      <option value="₹50,000 - ₹2,00,000">₹50,000 – ₹2,00,000</option>
-                      <option value="₹2,00,000+">₹2,00,000+</option>
-                      <option value="Let's discuss">Let's discuss</option>
-                    </select>
                   </div>
                 </div>
 

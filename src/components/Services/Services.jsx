@@ -105,7 +105,27 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   return (
-    <section id="services" className="py-8 lg:py-10 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden">
+    <section id="services" className="py-20 lg:py-28 bg-white dark:bg-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div 
+        className="absolute inset-0 opacity-100 pointer-events-none" 
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ccircle cx='30' cy='30' r='1.3' fill='%2394a3b8'/%3E%3Cg fill='%2394a3b8'%3E%3Ccircle cx='3' cy='3' r='0.8'/%3E%3Ccircle cx='57' cy='3' r='0.8'/%3E%3Ccircle cx='3' cy='57' r='0.8'/%3E%3Ccircle cx='57' cy='57' r='0.8'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      {/* Background decoration (glow) */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-300/10 dark:bg-purple-300/10 blur-[120px] rounded-full" />
+      </div>
+
+      {/* Top transition gradient from previous section */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white dark:from-slate-900 to-transparent pointer-events-none z-10" />
+
+      {/* Bottom transition gradient to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-50 dark:to-slate-900 pointer-events-none z-10" />
+
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         
         <div className="text-center max-w-3xl mx-auto mb-6">
@@ -113,9 +133,9 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4"
+            className="text-4xl md:text-5xl font-heading font-extrabold tracking-tight mb-6"
           >
-            Our Services
+            <span className="text-gradient">Our Services</span>
           </motion.h2>
 
           <motion.p 
@@ -123,7 +143,7 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-sm text-slate-600 dark:text-slate-300"
+            className="text-medium font-bold text-slate-600"
           >
             From stunning websites to intelligent AI systems, we provide end-to-end solutions to elevate your business in the digital era.
           </motion.p>
@@ -137,7 +157,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="group glass rounded-3xl p-6 md:p-8 min-h-[280px] border-[1.5px] border-violet-500/50 dark:border-violet-500/60 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full shadow-lg hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]"
+              className="group bg-slate-900/95 dark:bg-slate-950/90 rounded-3xl p-6 md:p-8 min-h-[280px] border border-violet-500/20 dark:border-violet-500/30 hover:-translate-y-2 transition-all duration-300 relative overflow-hidden flex flex-col h-full shadow-lg shadow-slate-950/20 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]"
             >
               <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${service.color} opacity-10 rounded-bl-full transition-transform group-hover:scale-110`} />
               
@@ -145,19 +165,19 @@ const Services = () => {
                 {service.icon}
               </div>
               
-              <h4 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-2">
+              <h4 className="text-lg md:text-xl font-bold text-white mb-2">
                 {service.title}
               </h4>
-              <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 line-clamp-3 leading-relaxed">
+              <p className="text-sm text-slate-300 mb-6 line-clamp-3 leading-relaxed">
                 {service.description}
               </p>
               
               <div className="flex-grow" />
               
-              <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700/50">
+              <div className="mt-2 pt-2 border-t border-slate-800/80">
                 <button 
                   onClick={() => setSelectedService(service)}
-                  className="inline-flex items-center text-sm text-violet-primary dark:text-violet-accent font-medium hover:underline focus:outline-none"
+                  className="inline-flex items-center text-sm text-violet-300 hover:text-violet-100 font-medium hover:underline focus:outline-none"
                 >
                   Learn more
                   <svg className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

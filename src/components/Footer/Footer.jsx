@@ -5,9 +5,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 py-16 border-t border-slate-200 dark:border-slate-800">
+    <footer className="bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 py-10 border-t border-slate-200 dark:border-slate-800">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
@@ -87,7 +87,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <p>&copy; {currentYear} Viyan. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
