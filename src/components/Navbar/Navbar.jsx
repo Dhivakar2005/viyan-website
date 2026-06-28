@@ -38,7 +38,20 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="#home" className="flex items-center gap-3 group">
+            <Link
+              to="/#home"
+              onClick={(e) => {
+                if (window.location.pathname === '/' || window.location.pathname === '') {
+                  const element = document.getElementById('home');
+                  if (element) {
+                    e.preventDefault();
+                    window.history.pushState(null, null, '#home');
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }
+              }}
+              className="flex items-center gap-3 group"
+            >
               <img src="/logo.png" alt="Viyan Logo" className="h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
               <div className="flex flex-col justify-center items-center w-fit">
                 <span className="text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
@@ -48,7 +61,7 @@ const Navbar = () => {
                   <div className="h-[2px] w-2 md:w-3 bg-yellow-500 rounded-full"></div>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
