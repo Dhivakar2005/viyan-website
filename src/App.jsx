@@ -11,7 +11,7 @@ import ScrollToHash from './components/common/ScrollToHash';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToHash />
       <Routes>
         <Route path="/" element={<Layout />}>
