@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { cn } from '../../utils/cn';
+import { getAssetPath } from '../../utils/assetHelper';
 
 const navLinks = [
   { name: 'HOME', href: '/#home' },
@@ -57,7 +58,7 @@ const Navbar = () => {
               onClick={(e) => handleNavLinkClick(e, '/#home')}
               className="flex items-center gap-3 group"
             >
-              <img src="/logo.png" alt="Viyan Logo" className="h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
+              <img src={getAssetPath('/logo.png')} alt="Viyan Logo" className="h-12 md:h-14 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
               <div className="flex flex-col justify-center items-center w-fit">
                 <span className="text-2xl md:text-3xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
                 <div className="flex items-center justify-center gap-1 md:gap-2 mt-1 w-full">

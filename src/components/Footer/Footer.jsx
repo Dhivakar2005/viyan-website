@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle, Briefcase, Code, Camera, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { getAssetPath } from '../../utils/assetHelper';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -31,7 +32,7 @@ const Footer = () => {
               onClick={(e) => handleFooterLinkClick(e, '/#home')}
               className="flex items-center gap-3 mb-6 group"
             >
-              <img src="/logo.png" alt="Viyan Logo" className="h-16 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
+              <img src={getAssetPath('/logo.png')} alt="Viyan Logo" className="h-16 w-auto mix-blend-screen group-hover:scale-105 transition-transform" />
               <div className="flex flex-col justify-center items-center w-fit">
                 <span className="text-3xl md:text-4xl font-semibold font-sans leading-none text-slate-900 dark:text-white uppercase tracking-[0.3em] md:tracking-[0.4em] text-center translate-x-[0.15em] md:translate-x-[0.2em]">VIYAN</span>
                 <div className="flex items-center justify-center gap-2 mt-2 w-full">

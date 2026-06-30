@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, Users, Zap, Search, Headset, Layers } from 'lucide-react';
+import { getAssetPath } from '../../utils/assetHelper';
 
 const reasons = [
   {
@@ -32,7 +33,7 @@ const reasons = [
 const allNodes = [
   { isStart: true, title: <>Client</>, icon: <div className="w-3 h-3 bg-white rounded-full"></div>, color: 'fuchsia-500' },
   ...reasons.map(r => ({ ...r, color: 'violet-500' })),
-  { isEnd: true, title: <>Viyan<br/>Technologies</>, icon: <img src="/logo.png" className="w-8 h-8 mix-blend-screen brightness-0 invert" alt="Viyan" />, color: 'violet-primary' }
+  { isEnd: true, title: <>Viyan<br/>Technologies</>, icon: <img src={getAssetPath('/logo.png')} className="w-8 h-8 mix-blend-screen brightness-0 invert" alt="Viyan" />, color: 'violet-primary' }
 ];
 
 const WhyChoose = () => {

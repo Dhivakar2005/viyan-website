@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Link } from 'lucide-react';
+import { getAssetPath } from '../../utils/assetHelper';
 
 const projects = [
     {
@@ -138,7 +139,7 @@ const Portfolio = () => {
                   <div className="relative h-56 overflow-hidden">
                     <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10" />
                     <img 
-                      src={project.image} 
+                      src={getAssetPath(project.image)} 
                       alt={project.name} 
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
@@ -212,7 +213,7 @@ const Portfolio = () => {
                   <div className="relative h-56 overflow-hidden">
                     <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10" />
                     <img 
-                      src={project.image} 
+                      src={getAssetPath(project.image)} 
                       alt={project.name} 
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                       loading="lazy"
